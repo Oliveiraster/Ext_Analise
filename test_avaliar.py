@@ -25,8 +25,7 @@ def test_avaliar_mensal():
         else:
             print("Avaliação Mensal:")
             print(df)
-
-            # Chamadas para análises
+            
             explorar_dados(df)
             medidas_tendencia(df)
             medidas_dispersao(df)
@@ -48,7 +47,7 @@ def test_avaliar_anual():
         else:
             print("Avaliação Anual:")
             print(df)
-            
+
             explorar_dados(df)
             medidas_tendencia(df)
             medidas_dispersao(df)
