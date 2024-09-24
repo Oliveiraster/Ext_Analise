@@ -40,9 +40,7 @@ def medidas_tendencia(df):
 
 
 def medidas_dispersao(df):
-    """
-    Calcula e imprime as medidas de dispersão.
-    """
+
     variancia_satisfacao = df['satisfacao'].var()
     desvio_padrao_satisfacao = df['satisfacao'].std()
     iqr_satisfacao = df['satisfacao'].quantile(0.75) - df['satisfacao'].quantile(0.25)

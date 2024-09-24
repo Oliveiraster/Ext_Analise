@@ -1,5 +1,3 @@
-# test_avaliar.py
-
 from evaluation import avaliar_mensal, avaliar_anual
 from analysis import (
     explorar_dados,
@@ -13,7 +11,7 @@ from analysis import (
 )
 import logging
 
-# Configurar logging
+
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 
@@ -50,8 +48,7 @@ def test_avaliar_anual():
         else:
             print("Avaliação Anual:")
             print(df)
-
-            # Chamadas para análises
+            
             explorar_dados(df)
             medidas_tendencia(df)
             medidas_dispersao(df)

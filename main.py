@@ -1,5 +1,3 @@
-# main.py
-
 from evaluation import avaliar_mensal, avaliar_anual
 from reports import gerar_relatorio
 from analysis import (
@@ -15,13 +13,11 @@ from analysis import (
 import argparse
 import logging
 
-# Configurar logging
+
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 def realizar_analises(df):
-    """
-    Executa todas as análises disponíveis no DataFrame.
-    """
+ 
     explorar_dados(df)
     medidas_tendencia(df)
     medidas_dispersao(df)
@@ -36,12 +32,10 @@ def main():
 
     subparsers = parser.add_subparsers(dest='comando', help='Comandos disponíveis')
 
-    # Subcomando para avaliação mensal
     parser_mensal = subparsers.add_parser('mensal', help='Realizar avaliação mensal')
     parser_mensal.add_argument('--mes', type=int, required=True, help='Mês da avaliação (1-12)')
     parser_mensal.add_argument('--ano', type=int, required=True, help='Ano da avaliação')
 
-    # Subcomando para avaliação anual
     parser_anual = subparsers.add_parser('anual', help='Realizar avaliação anual')
     parser_anual.add_argument('--ano', type=int, required=True, help='Ano da avaliação')
 
@@ -59,9 +53,9 @@ def main():
             df_avaliado = avaliar_mensal(mes, ano)
             if not df_avaliado.empty:
                 gerar_relatorio(df_avaliado, tipo='mensal', mes=mes, ano=ano)
-                # Executar análises
+                
                 realizar_analises(df_avaliado)
-                # Premiação
+                
                 funcionario_premiado = df_avaliado.iloc[0]
                 print(f"\nFuncionário do mês: {funcionario_premiado['nome']} com pontuação de {funcionario_premiado['Pontuacao']:.2f}")
             else:
@@ -76,9 +70,9 @@ def main():
             df_avaliado = avaliar_anual(ano)
             if not df_avaliado.empty:
                 gerar_relatorio(df_avaliado, tipo='anual', ano=ano)
-                # Executar análises
+                
                 realizar_analises(df_avaliado)
-                # Premiação
+                
                 funcionario_premiado = df_avaliado.iloc[0]
                 print(f"\nFuncionário do ano: {funcionario_premiado['nome']} com pontuação de {funcionario_premiado['Pontuacao']:.2f}")
             else:
